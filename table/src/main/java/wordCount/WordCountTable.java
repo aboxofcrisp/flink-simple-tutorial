@@ -33,6 +33,7 @@ public class WordCountTable {
         DataSet<WC> result = tEnv.toDataSet(filtered, WC.class);
         String path = "";
         CsvTableSink tableSink = new CsvTableSink(path, ",");
+
         tEnv.registerTableSink("csvSink", tableSink);
         result.print();
     }

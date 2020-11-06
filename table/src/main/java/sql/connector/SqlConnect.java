@@ -25,7 +25,7 @@ public class SqlConnect {
                 "    'connector.properties.0.key' = 'group.id',\n" +
                 "    'connector.properties.0.value' = 'testGroup',\n" +
                 "    'connector.properties.1.key' = 'bootstrap.servers',\n" +
-                "    'connector.properties.1.value' = '192.168.56.103:9092',\n" +
+                "    'connector.properties.1.value' = '127.0.0.1:9092',\n" +
                 "    'connector.specific-offsets.0.partition' = '0',\n" +
                 "    'connector.specific-offsets.0.offset' = '0',\n" +
                 "    'update-mode' = 'append',\n" +
@@ -39,10 +39,10 @@ public class SqlConnect {
                 "    total INT\n" +
                 ") WITH (\n" +
                 "    'connector.type' = 'jdbc',\n" +
-                "    'connector.url' = 'jdbc:mysql://192.168.56.103:3306/flink',\n" +
+                "    'connector.url' = 'jdbc:mysql://127.0.0.1:3306/flink',\n" +
                 "    'connector.table' = 'log',\n" +
                 "    'connector.username' = 'root',\n" +
-                "    'connector.password' = '123456',\n" +
+                "    'connector.password' = '12345678',\n" +
                 "    'connector.write.flush.max-rows' = '1'\n" +
                 ")";
 

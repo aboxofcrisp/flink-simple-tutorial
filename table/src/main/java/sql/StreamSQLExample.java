@@ -28,12 +28,14 @@ public class StreamSQLExample {
 
         // 将 DataStream 转换为 Table
         Table tableA = tEnv.fromDataStream(orderA, "user, product, amount");
+        Table tableB = tEnv.fromDataStream(orderB, "user, product, amount");
+
         // 将 DataStream 注册成 Table
-        tEnv.registerDataStream("OrderB", orderB, "user, product, amount");
+       // tEnv.registerDataStream("OrderB", orderB, "user, product, amount");
 
         // union 两个 table
         Table result = tEnv.sqlQuery("SELECT * FROM " + tableA + " WHERE amount > 2 UNION ALL " +
-                "SELECT * FROM OrderB WHERE amount > 2");
+                "SELECT * FROM "+tableB+" WHERE amount > 2");
 
         tEnv.toAppendStream(result, Order.class).print();
 
